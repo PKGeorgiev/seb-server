@@ -287,27 +287,27 @@ public class MonitoringProctoringService {
                 proctoringConnectionData);
 
         
-        if (proctoringSettings.useZoomAppClientForCollectingRoom) {
-			final String zoomStartLink = extractZoomStartLink(room.additionalRoomData);		
+        // if (proctoringSettings.useZoomAppClientForCollectingRoom) {
+			// final String zoomStartLink = extractZoomStartLink(room.additionalRoomData);		
 			
-			if (StringUtils.isNotBlank(zoomStartLink)) {
+			// if (StringUtils.isNotBlank(zoomStartLink)) {
 
-				final String script = String.format(
-						getOpenRoomScriptTemplate(),
-						room.name,
-						800,
-						1200,
-						room.name,
-						zoomStartLink,
-						"");
+				// final String script = String.format(
+						// getOpenRoomScriptTemplate(),
+						// room.name,
+						// 800,
+						// 1200,
+						// room.name,
+						// zoomStartLink,
+						// "");
 
-				RWT.getClient()
-						.getService(JavaScriptExecutor.class)
-						.execute(script);
+				// RWT.getClient()
+						// .getService(JavaScriptExecutor.class)
+						// .execute(script);
 						
-			}
+			// }
 
-        } else {
+        // } else {
 
             final String script = String.format(
                     getOpenRoomScriptTemplate(),
@@ -334,7 +334,7 @@ public class MonitoringProctoringService {
                         .call()
                         .onError(error -> log.error("Failed to notify proctoring room opened: ", error));
             }
-        }
+        //}
 
         return action;
     }
