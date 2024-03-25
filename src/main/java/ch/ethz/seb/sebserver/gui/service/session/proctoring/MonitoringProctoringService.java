@@ -304,6 +304,8 @@ public class MonitoringProctoringService {
 				RWT.getClient()
 						.getService(JavaScriptExecutor.class)
 						.execute(script);
+						
+			}
 
         } else {
 
