@@ -285,6 +285,8 @@ public class MonitoringProctoringService {
         ProctoringGUIService.setCurrentProctoringWindowData(
                 String.valueOf(proctoringSettings.examId),
                 proctoringConnectionData);
+				
+		log.info("openExamProctoringRoom");
 
         
         // if (proctoringSettings.useZoomAppClientForCollectingRoom) {
@@ -317,6 +319,8 @@ public class MonitoringProctoringService {
                     room.name,
                     this.guiServiceInfo.getExternalServerURIBuilder().toUriString(),
                     this.remoteProctoringEndpoint);
+					
+			log.info("Script: {}", script);
 
             RWT.getClient()
                     .getService(JavaScriptExecutor.class)
@@ -327,6 +331,7 @@ public class MonitoringProctoringService {
                     .registerProctoringWindow(String.valueOf(room.examId), room.name, room.name);
 
             if (newWindow) {
+				log.info("newWindow");
                 this.pageService.getRestService()
                         .getBuilder(NotifyProctoringRoomOpened.class)
                         .withURIVariable(API.PARAM_MODEL_ID, String.valueOf(proctoringSettings.examId))
